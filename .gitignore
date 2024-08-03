@@ -1,25 +1,7 @@
-# Python 관련
-*.py[cod]
-__pycache__/
-*.so
+.vercel
+*.log
+*.pyc
+__pycache__
 
-# 환경 변수 파일
-.env
-
-# Poetry 관련
-# 가상 환경 디렉토리 (Poetry가 .venv 디렉토리를 사용하는 경우)
-.venv/
-
-# macOS 관련
-.DS_Store
-
-# Windows 관련
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# PyCharm 관련
-.idea/
-
-# Visual Studio Code 관련
-.vscode/
+# Environments 
+.env 
