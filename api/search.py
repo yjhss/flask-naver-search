@@ -23,11 +23,13 @@ def get_naver_search_results(query):
     response = requests.get(url, headers=headers, params=params)
     return response.json(), response.status_code
   
-    
-if __name__ == '__main__':
-    query = "성신여대"
-    results, code = get_naver_search_results(query)
-    print(code)
-    print(len(results['items']))
-    print(results['items'][0]['title'])
+
+
+# vercel 에서 실행할 때는 아래 코드를 주석처리해야 함    
+# if __name__ == '__main__':
+#     query = "성신여대"
+#     results, code = get_naver_search_results(query)
+#     print(code)
+#     print(len(results['items']))
+#     print(results['items'][0]['title'])
 
