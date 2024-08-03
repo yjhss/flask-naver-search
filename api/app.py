@@ -50,5 +50,5 @@ def search_api():
 
 
 # vercel 에서 실행할 때는 아래 코드를 주석처리해야 함    
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
