@@ -4,6 +4,7 @@ load_dotenv()
 
 NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID")
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET")
+VALID_API_KEY = os.getenv("VALID_API_KEY")
 
 from flask import Flask, render_template, request, jsonify
 import requests
@@ -39,6 +40,13 @@ def search():
 
 @app.route('/search_api', methods=['GET'])
 def search_api():
+    # 요청 헤더에서 API 키 가져오기
+    api_key = request.headers.get('Authorization')
+    
+    # API 키 검증
+    if api_key != f"Bearer {VALID_API_KEY}":
+        return jsonify({"error": "Unauthorized"}), 401
+
     query = request.args.get('query')
     results, code = get_naver_search_results(query)
 
