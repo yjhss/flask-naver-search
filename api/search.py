@@ -24,10 +24,10 @@ def get_naver_search_results(query):
     return response.json(), response.status_code
   
     
-
-query = "성신여대"
-results, code = get_naver_search_results(query)
-print(code)
-print(len(results['items']))
-print(results['items'][0]['title'])
+if __name__ == '__main__':
+    query = "성신여대"
+    results, code = get_naver_search_results(query)
+    print(code)
+    print(len(results['items']))
+    print(results['items'][0]['title'])
 

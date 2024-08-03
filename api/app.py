@@ -19,12 +19,16 @@ def home():
 @app.route('/search', methods=['POST'])
 def search():
     query = request.form['query']
-    results = get_naver_search_results(query)
-    return render_template('results.html', query=query, results=results)
+    results, code = get_naver_search_results(query)
+
+    if code == 200:
+        return render_template('results.html', query=query, results=results)
+    else:
+        return jsonify({"error": "Error Code:" + str(code)})
 
 
 @app.route('/search_api', methods=['GET'])
-def search():
+def search_api():
     query = request.args.get('query')
     results, code = get_naver_search_results(query)
 
