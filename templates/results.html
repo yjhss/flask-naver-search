@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>검색 결과 for "{{ query }}"</h1>
+<ul>
+    {% for item in results['items'] %}
+    <li>{{ item['title'] }} <br/> <a href="{{ item['link'] }}">{{ item['link'] }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
