@@ -16,7 +16,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home.html',
+                           heading="네이버 뉴스 검색")
+
+# 'About' 페이지 라우팅
+@app.route('/about')
+def about():
+    return render_template('about.html', 
+                           heading="Welcome to About Page")
+
 
 @app.route('/search', methods=['POST'])
 def search():
