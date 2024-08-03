@@ -8,6 +8,8 @@ NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET")
 from flask import Flask, render_template, request, jsonify
 import requests
 
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from search import get_naver_search_results
 
 app = Flask(__name__)
@@ -40,5 +42,5 @@ def search_api():
 
 
 # vercel 에서 실행할 때는 아래 코드를 주석처리해야 함    
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
